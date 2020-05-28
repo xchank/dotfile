@@ -41,5 +41,5 @@ alias gc='git commit -v'
 alias ps='ps -ef'
 alias update=update_pkg
 alias ll='ls -al'
-alias myconfig='vim ~/.hank/bashrc'
+alias myconfig='vim ~/.hank/shrc'
 alias x=extract
