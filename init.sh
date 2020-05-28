@@ -15,3 +15,5 @@ else
 	echo "source \$HOME/.hank/shrc" >> $HOME/.zshrc
 	echo "Linked!"
 fi
+
+ln -s $HOME/.hank/vimrc $HOME/.vimrc

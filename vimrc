@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'junegunn/seoul256.vim'
-Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clang-completer'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
