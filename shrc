@@ -1,0 +1,45 @@
+export PROJ=~/project/
+
+update_pkg()
+{
+	if [ "$dist_name" = "Ubuntu\"" ] || [ "$dist_name" = "Debian GNU/Linux\"" ]; then
+		echo "$dist_name";
+		sudo apt -qq update && sudo apt -qq upgrade;
+	elif [ "$dist_name" = "Manjaro\"" ]; then
+		echo "manjaro";
+		sudo pacman -Syu
+	fi
+}
+
+extract() {
+    if [ -f $1 ] ; then
+        case $1 in
+        *.tar.bz2)   tar -xvjf $1    ;;
+        *.tar.gz)    tar -xvzf $1    ;;
+        *.tar.xz)    tar -xvJf $1    ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       rar x $1       ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar -xvf $1     ;;
+        *.tbz2)      tar -xvjf $1    ;;
+        *.tgz)       tar -xvzf $1    ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
+dist_name=$(cat /etc/os-release|grep "^NAME="|cut -c 7-)
+
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -v'
+alias ps='ps -ef'
+alias update=update_pkg
+alias ll='ls -al'
+alias myconfig='vim ~/.hank/bashrc'
+alias x=extract
