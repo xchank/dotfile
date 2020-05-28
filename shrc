@@ -3,10 +3,8 @@ export PROJ=~/project/
 update_pkg()
 {
 	if [ "$dist_name" = "Ubuntu\"" ] || [ "$dist_name" = "Debian GNU/Linux\"" ]; then
-		echo "$dist_name";
 		sudo apt -qq update && sudo apt -qq upgrade;
 	elif [ "$dist_name" = "Manjaro\"" ]; then
-		echo "manjaro";
 		sudo pacman -Syu
 	fi
 }
