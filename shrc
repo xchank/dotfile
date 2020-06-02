@@ -31,6 +31,19 @@ extract() {
     fi
 }
 
+gdrive()
+{
+    if [ -z "$1" ]; then
+        echo "usage:"
+        echo "gdrive -small FILEID FILENAME"
+        echo "gdrive -large FILEID FILENAME"
+    elif [ $1 = '-small' ]; then
+        wget --no-check-certificate "https://docs.google.com/uc?export=download&id=$2" -O $3
+    elif [ $1 = '-large' ]; then
+		wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate "https://docs.google.com/uc?export=download&id=$2" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=$2" -O $3 && rm -rf /tmp/cookies.txt
+    fi
+}
+
 dist_name=$(cat /etc/os-release|grep "^NAME="|cut -c 7-)
 
 alias gs='git status'
