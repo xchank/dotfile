@@ -1,5 +1,3 @@
-export PROJ=~/project/
-
 update_pkg()
 {
 	if [ "$dist_name" = "Ubuntu\"" ] || [ "$dist_name" = "Debian GNU/Linux\"" ]; then
@@ -49,8 +47,10 @@ dist_name=$(cat /etc/os-release|grep "^NAME="|cut -c 7-)
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit -v'
-alias ps='ps -ef'
+alias psm='ps aux --sort -rss'
+alias psc='ps aux k-pcpu'
 alias update=update_pkg
 alias ll='ls -al'
 alias myconfig='vim ~/.hank/shrc'
 alias x=extract
+alias free='free -h'
