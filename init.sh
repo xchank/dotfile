@@ -29,4 +29,6 @@ else
 	echo "Linked!"
 fi
 
+echo "source $ZSH/oh-my-zsh.sh" >> $HOME/.zshrc
+
 ln -s $HOME/.hank/vimrc $HOME/.vimrc
